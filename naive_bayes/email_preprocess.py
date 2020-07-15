@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import pickle
-# import cPickle
+import cPickle
 import numpy
 
 # from sklearn import cross_validation
@@ -34,12 +34,12 @@ def preprocess(words_file = "../tools/word_data.pkl", authors_file="../tools/ema
     authors_file_handler.close()
 
     words_file_handler = open(words_file, "r")
-    word_data = cPickle.load(words_file_handler)
+    word_data = pickle.load(words_file_handler)
     words_file_handler.close()
 
     ### test_size is the percentage of events assigned to the test set
     ### (remainder go into training)
-    features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(word_data, authors, test_size=0.1, random_state=42)
+    features_train, features_test, labels_train, labels_test = cross_validate.train_test_split(word_data, authors, test_size=0.1, random_state=42)
 
 
 
